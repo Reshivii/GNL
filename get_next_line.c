@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:12:28 by aburnott          #+#    #+#             */
-/*   Updated: 2022/10/20 12:26:23 by aburnott         ###   ########.fr       */
+/*   Updated: 2022/10/25 15:38:36 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 char	*get_next_line(int fd)
 {
+	static char	*save;
+	char		*buf;
+
+	buf = malloc(BUFFER_SIZE + 1);
+	if (!buf)
+		return (0);
 	
 }
 
@@ -31,6 +37,5 @@ int	main(void)
 		printf("%s", line);
 		free(line);
 	}
-
 	return (0);
 }
