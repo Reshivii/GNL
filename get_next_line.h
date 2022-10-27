@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:08:01 by aburnott          #+#    #+#             */
-/*   Updated: 2022/10/25 15:30:01 by aburnott         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:14:27 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# include <fcntl.h>
+# include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 #endif
