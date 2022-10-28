@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 13:34:57 by aburnott          #+#    #+#             */
-/*   Updated: 2022/10/28 14:16:40 by aburnott         ###   ########.fr       */
+/*   Created: 2022/10/19 15:08:01 by aburnott          #+#    #+#             */
+/*   Updated: 2022/10/28 14:34:28 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "get_next_line.h"
-#include <fcntl.h>
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-int	main(void)
-{
-	int		fd;
-	char	*line;
+# include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
 
-	fd = open("test", O_RDONLY);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		printf("\033[0m");
-		printf("OUTPUT: %s", line);
-		free(line);
-	}
-	return (0);
-}
+char	*free_all(char *save, char *buf);
+int		search_n(char *save);
+int		ft_strlen(char *s);
+char	*ft_strjoin(char *save, char *buf, int buf_len);
+char	*get_next_line(int fd);
+
+#endif

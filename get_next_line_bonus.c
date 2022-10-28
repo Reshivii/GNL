@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:12:28 by aburnott          #+#    #+#             */
-/*   Updated: 2022/10/28 14:40:42 by aburnott         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:40:12 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,21 +86,21 @@ static char	*after_n(char *save, int count)
 
 char	*get_next_line(int fd)
 {
-	static char	*save;
+	static char	*save[OPEN_MAX];
 	char		*line;
 	int			i;
 
 	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
 		return (0);
-	save = read_line(fd, save);
-	if (!save)
+	save[fd] = read_line(fd, save[fd]);
+	if (!save[fd])
 		return (0);
-	line = before_n(save, &i);
+	line = before_n(save[fd], &i);
 	if (!line)
 	{
-		save = 0;
+		save[fd] = 0;
 		return (0);
 	}
-	save = after_n(save, i);
+	save[fd] = after_n(save[fd], i);
 	return (line);
 }
