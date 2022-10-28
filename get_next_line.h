@@ -6,7 +6,7 @@
 /*   By: aburnott <aburnott@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:08:01 by aburnott          #+#    #+#             */
-/*   Updated: 2022/10/28 10:34:05 by aburnott         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:34:56 by aburnott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <fcntl.h>
+
+char	*free_all(char *save, char *buf);
+int		search_n(char *save);
+int		ft_strlen(char *s);
+char	*ft_strjoin(char *save, char *buf);
+char	*get_next_line(int fd);
 
 #endif
